@@ -2,7 +2,12 @@
 <html lang="pt-br">
   <head>
 
-   <!-- Meta Pixel Code -->
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -12,13 +17,61 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2556725491347886');
+fbq('init', '694703536599452');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2556725491347886&ev=PageView&noscript=1"
-/></noscript>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=694703536599452&ev=PageView&noscript=1" />
+</noscript>
 <!-- End Meta Pixel Code -->
+
+<script>
+const API_URL = 'https://1beaae0a-c827-4a07-8489-3e286ed3b1cf-00-af5l4r8hnuvu.riker.replit.dev/capi';
+
+function enviarEvento(eventName, customData = {}) {
+fetch(API_URL, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+event_name: eventName,
+event_source_url: window.location.href,
+user_data: {}, // Opcional: adicionar dados hash para melhorar rastreamento
+custom_data: customData
+})
+});
+}
+
+function trackPageView() {
+fbq('track', 'PageView');
+enviarEvento('PageView');
+}
+
+function trackViewContent(contentName = '') {
+fbq('track', 'ViewContent', { content_name: contentName });
+enviarEvento('ViewContent', { content_name: contentName });
+}
+
+function trackInitiateCheckout() {
+fbq('track', 'InitiateCheckout');
+enviarEvento('InitiateCheckout');
+}
+
+function trackPurchase(value = 0, currency = 'BRL') {
+fbq('track', 'Purchase', { value, currency });
+enviarEvento('Purchase', { value, currency });
+}
+
+window.onload = () => {
+trackPageView();
+};
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +85,7 @@ src="https://www.facebook.com/tr?id=2556725491347886&ev=PageView&noscript=1"
     <link rel="stylesheet" href="./assets/css/com.css">
 
     <!-- Título da Página -->
-    <title>Oportunidad única - GásFit - Club </title>
+    <title>Oportunidad única - Club Desparasitando - Calendario </title>
     
     <style type="text/css">
       body {
